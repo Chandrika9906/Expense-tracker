@@ -55,14 +55,14 @@ export const AuthProvider = ({ children }) => {
         });
     } else {
       dispatch({ type: 'SET_LOADING', payload: false });
-    }
+    }    
   }, []);
 
   const login = async (credentials) => {
     try {
       const response = await authService.login(credentials);
       localStorage.setItem('token', response.data.token);
-      dispatch({
+      dispatch({ 
         type: 'LOGIN_SUCCESS',
         payload: response.data
       });
