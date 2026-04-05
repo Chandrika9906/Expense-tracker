@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family:
+      "Manrope",
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      sans-serif;
+  }
+
+  body {
+    @apply bg-slate-100 text-slate-900 antialiased;
+  }
+
+  .dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 420ms ease-out both;
+  }
+
+  .animate-rise {
+    animation: rise-in 520ms ease-out both;
+  }
+
+  .animate-stagger-1 {
+    animation-delay: 60ms;
+  }
+  .animate-stagger-2 {
+    animation-delay: 120ms;
+  }
+  .animate-stagger-3 {
+    animation-delay: 180ms;
+  }
+  .animate-stagger-4 {
+    animation-delay: 240ms;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-widget-panel {
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-widget-panel {
+    top: 4rem;
+    left: var(--sidebar-offset);
+    height: calc(100vh - 4rem);
+  }
+}
